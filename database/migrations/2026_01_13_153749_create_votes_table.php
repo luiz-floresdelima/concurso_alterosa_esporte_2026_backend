@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('name')->unique();
-            $table->string('cpf')->unique();
-            $table->foreignId('participant_id')->constrained('participant', 'participant_id')->onDelete('cascade');
+            // $table->string('cpf')->unique();
+            $table->foreignId('participant_id')->constrained('participants', 'participant_id')->onDelete('cascade');
             $table->timestamps();
         });
     }

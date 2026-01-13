@@ -11,12 +11,18 @@ class CaptchaService
         $response = Http::asForm()->post(
             'https://www.google.com/recaptcha/api/siteverify',
             [
-                'secret'   => config('services.recaptcha.secret'),
+                'secret'   => config('services.captcha.secret'),
                 'response' => $token,
                 'remoteip' => $ip,
             ]
         );
 
-        return $response->success;
+        
+        /** @var Response $response */
+        if (! $response->successful()) {
+            return false;
+        }
+
+        return (bool) data_get($response->json(), 'success', false);
     }
 }

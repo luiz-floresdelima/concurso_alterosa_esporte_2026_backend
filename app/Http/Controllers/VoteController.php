@@ -12,7 +12,7 @@ class VoteController extends Controller
         $vote = Vote::create([
             'name' => $request->name,
             'email' => $request->email,
-            'cpf' => $request->cpf,
+            // 'cpf' => $request->cpf,
             'participant_id' => $request->participant_id
         ]);
 
