@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Participant extends Model
 {
+    protected $primaryKey = 'participant_id';
+
     protected $fillable = [
         'name',
         'badge',
