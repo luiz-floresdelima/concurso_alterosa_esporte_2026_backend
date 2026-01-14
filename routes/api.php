@@ -11,3 +11,4 @@ Route::prefix('participant')->controller(ParticipantController::class)->group(fu
 });
 
 Route::post('vote', [VoteController::class, 'store'])->name('vote.store');
+Route::get('vote', [VoteController::class, 'getCountVotes'])->name('vote.getCountVotes');

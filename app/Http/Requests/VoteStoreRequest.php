@@ -42,7 +42,7 @@ class VoteStoreRequest extends FormRequest
 
             $captchaService = app(CaptchaService::class);
 
-            if (! $captchaService->validate(
+            if (!$captchaService->validate(
                 $this->input('g_recaptcha_token'),
                 $this->ip()
             )) {

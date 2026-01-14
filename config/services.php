@@ -36,7 +36,7 @@ return [
     ],
 
     'captcha' => [
-        'secret' => env('CAPCHA_SECRET')
+        'secret' => env('CAPTCHA_SECRET')
     ]
 
 ];
