@@ -29,28 +29,28 @@ class VoteStoreRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             // // 'cpf' => ['required', new Cpf],
             'participant_id' => ['required', 'exists:participants,participant_id'],
-            'g_recaptcha_token'   => ['required', 'string']
+            // 'g_recaptcha_token'   => ['required', 'string']
         ];
     }
 
-    public function withValidator(Validator $validator)
-    {
-        $validator->after(function (Validator $validator) {
-            if ($validator->errors()->isNotEmpty()) {
-                return;
-            }
+    // public function withValidator(Validator $validator)
+    // {
+    //     $validator->after(function (Validator $validator) {
+    //         if ($validator->errors()->isNotEmpty()) {
+    //             return;
+    //         }
 
-            $captchaService = app(CaptchaService::class);
+    //         $captchaService = app(CaptchaService::class);
 
-            if (!$captchaService->validate(
-                $this->input('g_recaptcha_token'),
-                $this->ip()
-            )) {
-                $validator->errors()->add(
-                    'g_recaptcha_token',
-                    'Falha na validação do captcha.'
-                );
-            }
-        });
-    }
+    //         if (!$captchaService->validate(
+    //             $this->input('g_recaptcha_token'),
+    //             $this->ip()
+    //         )) {
+    //             $validator->errors()->add(
+    //                 'g_recaptcha_token',
+    //                 'Falha na validação do captcha.'
+    //             );
+    //         }
+    //     });
+    // }
 }
