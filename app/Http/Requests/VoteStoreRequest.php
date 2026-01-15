@@ -25,13 +25,37 @@ class VoteStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:votes,email'],
             'name' => ['required', 'string', 'max:255'],
-            // // 'cpf' => ['required', new Cpf],
+            'cpf' => ['required', new Cpf, 'unique:votes,cpf'],
             'participant_id' => ['required', 'exists:participants,participant_id'],
             'g_recaptcha_token'   => ['required', 'string']
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'O e-mail é obrigatório.',
+            'email.email' => 'Informe um e-mail válido.',
+            'email.max' => 'O e-mail deve ter no máximo 255 caracteres.',
+            'email.unique' => 'Este e-mail já foi utilizado nesta votação. Cada e-mail pode votar apenas uma vez.',
+
+            'name.required' => 'O nome é obrigatório.',
+            'name.string' => 'O nome informado é inválido.',
+            'name.max' => 'O nome deve ter no máximo 255 caracteres.',
+
+            'cpf.required' => 'O CPF é obrigatório.',
+            'cpf.unique' => 'Este CPF já foi utilizado nesta votação. Cada CPF pode votar apenas uma vez.',
+
+            'participant_id.required' => 'Selecione um participante.',
+            'participant_id.exists' => 'Participante não encontrado. Verifique a seleção e tente novamente.',
+
+            'g_recaptcha_token.required' => 'Confirme o captcha para continuar.',
+            'g_recaptcha_token.string' => 'Confirme o captcha para continuar.',
+        ];
+    }
+
 
     public function withValidator(Validator $validator)
     {
@@ -48,7 +72,7 @@ class VoteStoreRequest extends FormRequest
             )) {
                 $validator->errors()->add(
                     'g_recaptcha_token',
-                    'Falha na validação do captcha.'
+                    'Não foi possível validar o captcha. Atualize a página e tente novamente.'
                 );
             }
         });

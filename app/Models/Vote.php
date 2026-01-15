@@ -9,7 +9,7 @@ class Vote extends Model
     protected $fillable = [
         'name',
         'email',
-        // 'cpf',
+        'cpf',
         'participant_id',
     ];
 
