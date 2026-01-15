@@ -26,6 +26,8 @@ export default function Login({
         <AuthLayout
             title="Acessar plataforma"
             description="Entre com seu e-mail e senha para continuar"
+            variant="hero"
+            backgroundImage="/images/bg.webp"
         >
             <Head title="Login" />
 
