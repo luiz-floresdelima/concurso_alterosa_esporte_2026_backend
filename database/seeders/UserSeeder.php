@@ -16,9 +16,6 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin Alterosa',
             'email' => 'admin@alterosaesportes.com',
-<<<<<<< HEAD
-            'password' => bcrypt('AlterosaEsportes26'),
-=======
             'password' => bcrypt('!w\^,?8(6M_h1\L7an}w'),
         ]);
 
@@ -32,7 +29,6 @@ class UserSeeder extends Seeder
             'name' => 'Admin Sistema',
             'email' => 'admin@solidtech.com',
             'password' => bcrypt('FSq{u$3t!6-t\]^tKUE4'),
->>>>>>> d324582370b177534f8b4f6f9b54501609b22dcc
         ]);
     }
 }
