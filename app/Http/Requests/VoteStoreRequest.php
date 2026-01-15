@@ -29,7 +29,7 @@ class VoteStoreRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'cpf' => ['required', new Cpf, 'unique:votes,cpf'],
             'participant_id' => ['required', 'exists:participants,participant_id'],
-            // 'g_recaptcha_token'   => ['required', 'string']
+            'g_recaptcha_token'   => ['required', 'string']
         ];
     }
 
