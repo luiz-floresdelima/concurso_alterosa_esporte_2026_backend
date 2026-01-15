@@ -2,7 +2,9 @@ import AppLayout from '@/layouts/app-layout';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { DashboardParticipant, DashboardProps } from '@/types/dashboard';
-import { Head, usePage } from '@inertiajs/react';
+import { Head, router, usePage } from '@inertiajs/react';
+import { useEcho } from '@laravel/echo-react';
+import { useState } from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -12,18 +14,29 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const { top_3, participants, count_votes } = usePage<DashboardProps>().props;
+    const { top_3, participants, count_votes, lastUpdated } = usePage<DashboardProps>().props;
+    const [lastUpdatedAt, setLastUpdatedAt] = useState<Date | null>(lastUpdated ? new Date(lastUpdated as string) : null)
     const totalParticipants = participants?.length ?? 0;
     const formatNumber = (value: number) => new Intl.NumberFormat('pt-BR').format(value);
     const getInitials = (name?: string) =>
         name
             ? name
-                  .trim()
-                  .split(/\s+/)
-                  .slice(0, 2)
-                  .map((part) => part[0]?.toUpperCase())
-                  .join('')
+                .trim()
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((part) => part[0]?.toUpperCase())
+                .join('')
             : '??';
+
+    useEcho('votes', '.vote.created', () => {
+        console.log('teste')
+        router.reload({
+            only: ['top_3', 'participants', 'count_votes', 'lastUpdatedAt'],
+            onSuccess: () => {
+                setLastUpdatedAt(new Date())
+            },
+        })
+    })
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -91,7 +104,7 @@ export default function Dashboard() {
                                         </h2>
                                     </div>
                                     <div className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-600 dark:text-amber-300">
-                                        Atualizado agora
+                                        Atualizado às {lastUpdatedAt?.toLocaleTimeString()}
                                     </div>
                                 </div>
                                 <div className="mt-4 grid gap-3">

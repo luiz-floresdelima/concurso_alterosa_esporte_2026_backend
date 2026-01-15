@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@alterosaesportes.com',
-            'password' => bcrypt('AlterosaEsportes25'),
+            'password' => bcrypt('AlterosaEsportes26'),
         ]);
     }
 }

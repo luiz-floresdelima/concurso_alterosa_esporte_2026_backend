@@ -12,7 +12,8 @@ class DashboardController extends Controller
         return Inertia::render('dashboard', [
             'top_3' => $participantController->getWinners(),
             'participants' => $participantController->getListWithVotes(),
-            'count_votes' => $voteController->getCountVotes()
+            'count_votes' => $voteController->getCountVotes(),
+            'lastUpdated' => now(),
         ]);
     }
 }
