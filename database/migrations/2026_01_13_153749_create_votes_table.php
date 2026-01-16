@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->string('name')->unique();
-            // $table->string('cpf')->unique();
+            $table->string('name');
+            $table->string('cpf')->unique();
             $table->foreignId('participant_id')->constrained('participants', 'participant_id')->onDelete('cascade');
             $table->timestamps();
         });

@@ -13,14 +13,6 @@ class VoteObserver
      */
     public function created(Vote $vote): void
     {
-        // $key = 'votes:broadcast';
-
-        // if (Cache::has($key)) {
-        //     return;
-        // }
-
-        // Cache::put($key, true, now()->addSeconds(5));
-
         broadcast(new VoteCreated())->toOthers();
     }
 
