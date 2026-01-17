@@ -17,35 +17,35 @@ class ParticipantSeeder extends Seeder
                 'participant_id' => 1,
                 'name' => 'Alexandre Ricardo',
                 'badge' => 'América',
-                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/leonardo-brasil.jpeg',
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/alexandre-ricardo.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/dXLHL_lBL-0',
             ],
             [
                 'participant_id' => 2,
                 'name' => 'Alicia Yocondda',
                 'badge' => 'América',
-                'link_image' => 'https://img.youtube.com/vi/kXFGXE5vi7c/hqdefault.jpg',
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/alicia-yoconda.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/kXFGXE5vi7c',
             ],
             [
                 'participant_id' => 3,
                 'name' => 'Darcy Meire',
                 'badge' => 'Cruzeiro',
-                'link_image' => 'https://img.youtube.com/vi/rIlAU2E-PHI/hqdefault.jpg',
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/darcy-meire.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/rIlAU2E-PHI',
             ],
             [
                 'participant_id' => 4,
                 'name' => 'Guilherme Rios Viana',
                 'badge' => 'América',
-                'link_image' => 'https://img.youtube.com/vi/KxI3DS0Reao/hqdefault.jpg',
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/guilherme-rios.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/KxI3DS0Reao',
             ],
             [
                 'participant_id' => 5,
                 'name' => 'Larissa Vieira',
                 'badge' => 'Atlético',
-                'link_image' => 'https://img.youtube.com/vi/37MUaX4OmgE/hqdefault.jpg', //errado
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/larissa-vieira.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/37MUaX4OmgE',
             ],
             [
@@ -73,14 +73,14 @@ class ParticipantSeeder extends Seeder
                 'participant_id' => 9,
                 'name' => 'Nezir Araujo',
                 'badge' => 'América',
-                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/nezir-araujo.jpeg', //errado
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/nezir-araujo.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/KxI3DS0Reao',
             ],
             [
                 'participant_id' => 10,
                 'name' => 'Paulo Henrique',
                 'badge' => 'Cruzeiro',
-                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/paulo-henrique.jpeg', //errado
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/paulo-henrique.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/1ppxPCiJo8A',
             ],
             [
@@ -94,21 +94,21 @@ class ParticipantSeeder extends Seeder
                 'participant_id' => 12,
                 'name' => 'Samuel Eduardo',
                 'badge' => 'América',
-                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/samuel-eduardo.jpeg', //errado
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/samuel-eduardo.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/KxI3DS0Reao',
             ],
             [
                 'participant_id' => 13,
                 'name' => 'Wesley Goncalves',
                 'badge' => 'Atlético',
-                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/wesley-goncalves.jpeg', //errado
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/wesley-goncalves.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/SVrsZetok4I',
             ],
             [
                 'participant_id' => 14,
                 'name' => 'Wesley Ricardo',
                 'badge' => 'Cruzeiro',
-                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/wesley-ricardo.jpeg', //errado
+                'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/wesley-ricardo.jpeg',
                 'link_video' => 'https://www.youtube.com/embed/1ppxPCiJo8A',
             ],
             [
