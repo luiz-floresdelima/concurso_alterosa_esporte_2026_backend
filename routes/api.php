@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LeadsController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
@@ -14,3 +15,5 @@ Route::prefix('vote')->controller(VoteController::class)->group(function () {
     Route::get('count', [VoteController::class, 'getCountVotes'])->name('vote.getCountVotes');
     Route::post('', [VoteController::class, 'store'])->name('vote.store');
 });
+
+Route::get('export/leads', [LeadsController::class, 'exportCSV'])->name('leads.exportCSV');

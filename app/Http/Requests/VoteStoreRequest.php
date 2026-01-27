@@ -51,7 +51,7 @@ class VoteStoreRequest extends FormRequest
             'participant_id.required' => 'Selecione um participante.',
             'participant_id.exists' => 'Participante não encontrado. Verifique a seleção e tente novamente.',
 
-            'g_recaptcha_token.required' => 'Confirme o captcha para continuar.',
+            'g_recaptcha_token.required' => 'O ReCaptcha é obrigatório.',
             'g_recaptcha_token.string' => 'Confirme o captcha para continuar.',
         ];
     }

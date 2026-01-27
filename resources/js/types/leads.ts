@@ -4,6 +4,8 @@ export interface LeadVote {
     id: number;
     name: string;
     email: string;
+    cpf: string;
+    created_at: string;
     participant_id: number;
     participant?: {
         participant_id: number;

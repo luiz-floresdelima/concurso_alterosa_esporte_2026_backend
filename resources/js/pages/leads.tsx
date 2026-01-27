@@ -1,4 +1,5 @@
 import AppLayout from '@/layouts/app-layout';
+import { formatDateToBrazilian } from '@/lib/utils';
 import { type BreadcrumbItem } from '@/types';
 import { LeadVote, LeadsProps } from '@/types/leads';
 import { Head, usePage } from '@inertiajs/react';
@@ -14,6 +15,10 @@ export default function Leads() {
     const { leads } = usePage<LeadsProps>().props;
     const formatNumber = (value: number) => new Intl.NumberFormat('pt-BR').format(value);
 
+    const handleExportCSV = () => {
+        window.location.href = '/leads/export';
+    };
+
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Leads" />
@@ -28,7 +33,7 @@ export default function Leads() {
                                 Leads de votacao
                             </h1>
                             <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-                                Nome, email e voto registrado por participante.
+                                Informações de cada votante.
                             </p>
                         </div>
                         <div className="rounded-2xl border border-slate-200/70 bg-slate-50 px-5 py-3 text-center dark:border-slate-800/60 dark:bg-slate-900">
@@ -43,18 +48,24 @@ export default function Leads() {
                 </section>
 
                 <section className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-800/60 dark:bg-slate-950">
-                    <div className="hidden grid-cols-[2fr_2fr_2fr_1fr] gap-4 border-b border-slate-200/70 bg-slate-50/80 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-800/60 dark:bg-slate-900/60 dark:text-slate-400 md:grid">
+                    <div className="p-4 flex justify-end">
+                        <a href="/api/export/leads" className="btn btn-primary">
+                            Exportar CSV
+                        </a>
+                    </div>
+                    <div className="hidden grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-4 border-b border-slate-200/70 bg-slate-50/80 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-800/60 dark:bg-slate-900/60 dark:text-slate-400 md:grid">
                         <span>Votante</span>
                         <span>Email</span>
                         <span>Voto</span>
-                        <span className="text-right">ID</span>
+                        <span>CPF</span>
+                        <span>Data do voto</span>
                     </div>
                     <div className="divide-y divide-slate-200/70 dark:divide-slate-800/60">
                         {leads?.length ? (
                             leads.map((lead: LeadVote) => (
                                 <div
                                     key={lead.id}
-                                    className="grid gap-4 px-6 py-4 md:grid-cols-[2fr_2fr_2fr_1fr]"
+                                    className="grid gap-4 px-6 py-4 md:grid-cols-[1fr_1fr_1fr_1fr_1fr]"
                                 >
                                     <div>
                                         <p className="text-sm font-semibold text-slate-900 dark:text-slate-50">
@@ -70,8 +81,11 @@ export default function Leads() {
                                     <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                                         {lead.participant?.name ?? 'Participante nao localizado'}
                                     </div>
-                                    <div className="text-right text-sm text-slate-500 dark:text-slate-400">
-                                        #{lead.id}
+                                    <div className="text-sm text-slate-600 dark:text-slate-300">
+                                        {lead.cpf}
+                                    </div>
+                                    <div className="text-sm text-slate-600 dark:text-slate-300">
+                                        {formatDateToBrazilian(lead.created_at)}
                                     </div>
                                 </div>
                             ))
