@@ -15,10 +15,6 @@ export default function Leads() {
     const { leads } = usePage<LeadsProps>().props;
     const formatNumber = (value: number) => new Intl.NumberFormat('pt-BR').format(value);
 
-    const handleExportCSV = () => {
-        window.location.href = '/leads/export';
-    };
-
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Leads" />
