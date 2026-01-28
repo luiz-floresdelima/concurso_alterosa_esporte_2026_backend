@@ -20,6 +20,48 @@ export default function Dashboard() {
     const [lastUpdatedAt, setLastUpdatedAt] = useState<Date | null>(lastUpdated ? new Date(lastUpdated as string) : null)
     const totalParticipants = participants?.length ?? 0;
     const formatNumber = (value: number) => new Intl.NumberFormat('pt-BR').format(value);
+
+    const MedalIcon = ({ rank }: { rank: 1 | 2 | 3 }) => {
+        const color =
+            rank === 1
+                ? 'text-yellow-400'
+                : rank === 2
+                    ? 'text-slate-300'
+                    : 'text-amber-700 dark:text-amber-600';
+
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                className={`h-5 w-5 ${color}`}
+                aria-hidden="true"
+                focusable="false"
+            >
+                <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 8.661c-.337.67-1.1 1.09-1.958 1.09-.73 0-1.376-.288-1.777-.766-.4.478-1.047.765-1.777.765-.857 0-1.62-.42-1.957-1.09-.215-.43-.24-.963-.069-1.484.17-.52.52-.976.986-1.28.488-.318 1.1-.49 1.734-.49.567 0 1.113.13 1.574.37.462-.24 1.007-.37 1.574-.37.633 0 1.246.172 1.734.49.465.304.815.76.986 1.28.17.522.146 1.055-.07 1.484m.224 5.475a.43.43 0 0 1-.627.165L8 13.3l-2.462 1.864A.43.43 0 0 1 4.85 15l.326-3.8-3.042-2.184a.43.43 0 0 1-.154-.494.43.43 0 0 1 .4-.3l3.693-.867.863-3.9a.43.43 0 0 1 .8 0l.863 3.9 3.693.866a.43.43 0 0 1 .4.3.43.43 0 0 1-.154.495L10.824 11.2z" fill="currentColor" />
+            </svg>
+        );
+    };
+
+    const RankBadge = ({ rank, size = 'md' }: { rank: number; size?: 'sm' | 'md' }) => {
+        const isMedal = rank === 1 || rank === 2 || rank === 3;
+        const box = size === 'sm' ? 'h-7 w-7' : 'h-9 w-9';
+        const icon = size === 'sm' ? 'h-4 w-4' : 'h-5 w-5';
+
+        return (
+            <div
+                className={`flex ${box} items-center justify-center rounded-full border border-slate-200/70 bg-white shadow-sm dark:border-slate-800/60 dark:bg-slate-950`}
+                aria-label={`Posição ${rank}`}
+            >
+                {isMedal ? (
+                    <div className={icon}>
+                        <MedalIcon rank={rank as 1 | 2 | 3} />
+                    </div>
+                ) : (
+                    <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">{rank}</span>
+                )}
+            </div>
+        );
+    };
     const getInitials = (name?: string) =>
         name
             ? name
@@ -94,7 +136,7 @@ export default function Dashboard() {
                 <section className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-amber-50 via-white to-emerald-50 p-6 shadow-sm dark:border-slate-800/60 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
                     <div className="pointer-events-none absolute -left-20 top-0 h-48 w-48 rounded-full bg-amber-300/40 blur-3xl dark:bg-amber-500/20" />
                     <div className="pointer-events-none absolute -right-12 bottom-0 h-56 w-56 rounded-full bg-emerald-300/40 blur-3xl dark:bg-emerald-500/20" />
-                    <div className="relative grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+                    <div className="relative grid gap-6 items-end lg:grid-cols-[1.1fr_0.9fr]">
                         <div className="animate-in fade-in-0 slide-in-from-left-4 duration-700">
                             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600/80 dark:text-amber-300/80">
                                 Concurso Alterosa Esporte 2026
@@ -278,9 +320,7 @@ export default function Dashboard() {
                                                 key={participant.participant_id}
                                                 className="flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white/70 p-3 shadow-sm dark:border-slate-800/60 dark:bg-slate-950/50"
                                             >
-                                                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-xs font-semibold text-white">
-                                                    {index + 1}
-                                                </div>
+                                                <RankBadge rank={index + 1} />
                                                 <div className="min-w-0 flex-1">
                                                     <p className="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">
                                                         {participant.name}
@@ -342,9 +382,7 @@ export default function Dashboard() {
                                         className="group grid gap-4 px-6 py-4 transition-colors hover:bg-slate-50/70 dark:hover:bg-slate-900/40 md:grid-cols-[2fr_1.2fr_0.8fr]"
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600 ring-1 ring-slate-200/70 dark:bg-slate-800 dark:text-slate-200 dark:ring-slate-700/70">
-                                                {index + 1}
-                                            </div>
+                                            <RankBadge rank={index + 1} size="sm" />
                                             {participant.link_image ? (
                                                 <img
                                                     src={participant.link_image}
