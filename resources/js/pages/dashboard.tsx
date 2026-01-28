@@ -29,7 +29,6 @@ export default function Dashboard() {
             : '??';
 
     useEcho('votes', '.vote.created', () => {
-        console.log('teste')
         router.reload({
             only: ['top_3', 'participants', 'count_votes', 'lastUpdatedAt'],
             onSuccess: () => {

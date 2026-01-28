@@ -22,3 +22,7 @@ export function formatDateToBrazilian(dateString: string): string {
         second: '2-digit',
     });
 }
+
+export function isAdmin(id: number) {
+    return id !== 1;
+}
