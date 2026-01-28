@@ -14,5 +14,8 @@ export interface DashboardProps extends PageProps {
     top_3: DashboardParticipant[];
     participants: DashboardParticipant[];
     count_votes: number;
-    lastUpdate: string;
+    votes_last_5m: number;
+    votes_last_10m: number;
+    votes_last_30m: number;
+    lastUpdated: string;
 }
