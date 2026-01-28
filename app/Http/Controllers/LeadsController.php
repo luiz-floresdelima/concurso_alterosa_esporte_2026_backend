@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Vote;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class LeadsController extends Controller
 {
     public function index()
     {
+        if (Auth::user()->id == 1) {
+            return redirect()->route('dashboard');
+        }
         return Inertia::render('leads', [
             'leads' => $this->getAllLeads(),
         ]);

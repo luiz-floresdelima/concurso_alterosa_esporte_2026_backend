@@ -113,7 +113,6 @@ export default function Dashboard() {
     });
 
     useEcho('votes', '.vote.created', () => {
-        console.log('teste')
         router.reload({
             only: [
                 'participants',
