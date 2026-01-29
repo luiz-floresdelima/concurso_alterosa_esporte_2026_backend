@@ -44,8 +44,8 @@ export default function Dashboard() {
 
     const RankBadge = ({ rank, size = 'md' }: { rank: number; size?: 'sm' | 'md' }) => {
         const isMedal = rank === 1 || rank === 2 || rank === 3;
-        const box = size === 'sm' ? 'h-7 w-7' : 'h-9 w-9';
-        const icon = size === 'sm' ? 'h-4 w-4' : 'h-5 w-5';
+        const box = size === 'sm' ? 'h-6 w-6' : 'h-9 w-9';
+        const icon = size === 'sm' ? 'h-3.5 w-3.5' : 'h-5 w-5';
 
         return (
             <div
@@ -359,7 +359,7 @@ export default function Dashboard() {
                             <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                 Lista completa
                             </p>
-                            <h2 className="mt-1 text-xl font-semibold text-slate-900 dark:text-slate-50">
+                            <h2 className="mt-0.5 text-lg font-semibold text-slate-900 dark:text-slate-50">
                                 Participantes
                             </h2>
                         </div>
@@ -367,10 +367,10 @@ export default function Dashboard() {
                             Ordenado por votos
                         </div>
                     </div>
-                    <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-800/60 dark:bg-slate-950">
-                        <div className="hidden grid-cols-[2fr_1.2fr_0.8fr] gap-4 border-b border-slate-200/70 bg-slate-50/80 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-800/60 dark:bg-slate-900/60 dark:text-slate-400 md:grid">
-                            <span>Atleta</span>
-                            <span>Badge</span>
+                    <div className="mt-3 overflow-hidden rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-800/60 dark:bg-slate-950">
+                        <div className="hidden grid-cols-[2fr_1.2fr_0.8fr] gap-4 border-b border-slate-200/70 bg-slate-50/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:border-slate-800/60 dark:bg-slate-900/60 dark:text-slate-400 md:grid">
+                            <span>Participante</span>
+                            <span>Time</span>
                             <span className="text-right">Votos</span>
                         </div>
                         <div className="divide-y divide-slate-200/70 dark:divide-slate-800/60">
@@ -378,19 +378,19 @@ export default function Dashboard() {
                                 participants.map((participant: DashboardParticipant, index: number) => (
                                     <div
                                         key={participant.participant_id}
-                                        className="group grid gap-4 px-6 py-4 transition-colors hover:bg-slate-50/70 dark:hover:bg-slate-900/40 md:grid-cols-[2fr_1.2fr_0.8fr]"
+                                        className="group grid gap-3 px-4 py-3 transition-colors hover:bg-slate-50/70 dark:hover:bg-slate-900/40 md:grid-cols-[2fr_1.2fr_0.8fr]"
                                     >
-                                        <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-3">
                                             <RankBadge rank={index + 1} size="sm" />
                                             {participant.link_image ? (
                                                 <img
                                                     src={participant.link_image}
                                                     alt={participant.name}
-                                                    className="h-11 w-11 rounded-xl object-cover"
+                                                    className="h-9 w-9 rounded-lg object-cover"
                                                     loading="lazy"
                                                 />
                                             ) : (
-                                                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-200">
+                                                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-200">
                                                     {getInitials(participant.name)}
                                                 </div>
                                             )}
@@ -398,13 +398,10 @@ export default function Dashboard() {
                                                 <p className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                                                     {participant.name}
                                                 </p>
-                                                <p className="text-xs text-slate-500 dark:text-slate-400">
-                                                    {participant.link_instagram ?? 'Sem Instagram'}
-                                                </p>
                                             </div>
                                         </div>
                                         <div className="min-w-0">
-                                            <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 md:hidden">
+                                            <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 md:hidden">
                                                 Badge
                                             </div>
                                             {(() => {
@@ -412,17 +409,17 @@ export default function Dashboard() {
                                                 const badgeLabel = participant.badge ?? 'Sem badge';
 
                                                 return (
-                                                    <div className="mt-2 flex min-w-0 items-center gap-3 md:mt-0">
-                                                        <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-800/60 dark:bg-slate-950">
+                                                    <div className="mt-1 flex min-w-0 items-center gap-3 md:mt-0">
+                                                        <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200/70 bg-white shadow-sm dark:border-slate-800/60 dark:bg-slate-950">
                                                             {badgeSvg ? (
                                                                 <img
                                                                     src={badgeSvg}
                                                                     alt={participant.badge ? `Brasão ${participant.badge}` : 'Brasão do time'}
-                                                                    className="h-7 w-7 object-contain"
+                                                                    className="h-6 w-6 object-contain"
                                                                     loading="lazy"
                                                                 />
                                                             ) : (
-                                                                <div className="h-7 w-7 rounded-lg bg-slate-100 dark:bg-slate-800" />
+                                                                <div className="h-6 w-6 rounded-md bg-slate-100 dark:bg-slate-800" />
                                                             )}
                                                         </div>
                                                         <div className="min-w-0">
@@ -438,17 +435,17 @@ export default function Dashboard() {
                                             })()}
                                         </div>
                                         <div className="md:text-right">
-                                            <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 md:hidden">
+                                            <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 md:hidden">
                                                 Votos
                                             </div>
-                                            <div className="mt-2 text-sm font-semibold tabular-nums text-slate-900 dark:text-slate-50 md:mt-0">
+                                            <div className="mt-1 text-sm font-semibold tabular-nums text-slate-900 dark:text-slate-50 md:mt-0">
                                                 {formatNumber(participant.votes_count ?? 0)}
                                             </div>
                                         </div>
                                     </div>
                                 ))
                             ) : (
-                                <div className="px-6 py-10 text-center text-sm text-slate-500 dark:text-slate-400">
+                                <div className="px-4 py-10 text-center text-sm text-slate-500 dark:text-slate-400">
                                     Nenhum participante cadastrado.
                                 </div>
                             )}
