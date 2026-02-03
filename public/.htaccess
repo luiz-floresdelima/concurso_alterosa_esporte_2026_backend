@@ -3,6 +3,14 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    # Allow cross‑origin access to webfont files (widget is embedded on other domains)
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(eot|ttf|ttc|otf|woff|woff2)$">
+            Header set Access-Control-Allow-Origin "*"
+            Header set Access-Control-Allow-Methods "GET, OPTIONS"
+        </FilesMatch>
+    </IfModule>
+
     RewriteEngine On
 
     # Handle Authorization Header
