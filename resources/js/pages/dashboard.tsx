@@ -135,6 +135,13 @@ export default function Dashboard() {
                 <section className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-amber-50 via-white to-emerald-50 p-6 shadow-sm dark:border-slate-800/60 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
                     <div className="pointer-events-none absolute -left-20 top-0 h-48 w-48 rounded-full bg-amber-300/40 blur-3xl dark:bg-amber-500/20" />
                     <div className="pointer-events-none absolute -right-12 bottom-0 h-56 w-56 rounded-full bg-emerald-300/40 blur-3xl dark:bg-emerald-500/20" />
+                    {lastUpdatedAt ? (
+                        <div className="absolute right-6 top-6 z-10">
+                            <div className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-600 dark:text-amber-300">
+                                Atualizado às {lastUpdatedAt.toLocaleTimeString()}
+                            </div>
+                        </div>
+                    ) : null}
                     <div className="relative grid gap-6 items-end lg:grid-cols-[1.1fr_0.9fr]">
                         <div className="animate-in fade-in-0 slide-in-from-left-4 duration-700">
                             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600/80 dark:text-amber-300/80">
@@ -204,18 +211,13 @@ export default function Dashboard() {
                         </div>
                         <div className="animate-in fade-in-0 slide-in-from-right-4 duration-700">
                             <div className="rounded-2xl border border-slate-200/70 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                                            Distribuição por time
-                                        </p>
-                                        <h2 className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-50">
-                                            Visão geral
-                                        </h2>
-                                    </div>
-                                    <div className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-600 dark:text-amber-300">
-                                        Atualizado às {lastUpdatedAt?.toLocaleTimeString()}
-                                    </div>
+                                <div>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                        Distribuição por time
+                                    </p>
+                                    <h2 className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-50">
+                                        Visão geral
+                                    </h2>
                                 </div>
                                 <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                                     {badgeStats.map(({ badge, votes, athletes, percent }) => (
