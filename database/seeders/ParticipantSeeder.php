@@ -18,120 +18,120 @@ class ParticipantSeeder extends Seeder
                 'name' => 'Alexandre Ricardo',
                 'badge' => 'América',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/alexandre-ricardo.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/dXLHL_lBL-0',
-                'link_instagram' => 'https://www.instagram.com/amp.alexandremaia?igsh=MXB4anU4Njd4dXRiYQ==', //leavndo para o perfil dele
+                'link_video' => 'https://www.youtube.com/embed/JCTI1AMIsHk', // foi
+                'link_instagram' => 'https://www.instagram.com/amp.alexandremaia',
             ],
             [
                 'participant_id' => 2,
-                'name' => 'Alicia Yocondda',
+                'name' => 'Alicia Yoconda',
                 'badge' => 'América',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/alicia-yoconda.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/kXFGXE5vi7c',
-                'link_instagram' => 'https://www.instagram.com/reel/DRfhOtRkSXq/?igsh=YTMyMnY3bXdvOHNh',
+                'link_video' => 'https://www.youtube.com/embed/T09SCNq2Mfg', // foi
+                'link_instagram' => 'https://www.instagram.com/aliciayocondagomez/',
             ],
             [
                 'participant_id' => 3,
                 'name' => 'Darcy Meire',
                 'badge' => 'Cruzeiro',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/darcy-meire.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/rIlAU2E-PHI',
-                'link_instagram' => 'https://www.instagram.com/reel/DQpiTvFiYtZ/?igsh=aXBodnlzNTYzYTB2',
+                'link_video' => 'https://www.youtube.com/embed/BXGLoG0pjWY', //foi
+                'link_instagram' => 'https://www.instagram.com/bocaazulbh/',
             ],
             [
                 'participant_id' => 4,
                 'name' => 'Guilherme Rios',
                 'badge' => 'América',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/guilherme-rios.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/KxI3DS0Reao',
-                'link_instagram' => 'https://www.instagram.com/reel/DQcvAYhjVoG/?igsh=dmh6cnltN2gyZmt5',
+                'link_video' => 'https://www.youtube.com/embed/gZlaPzcZdJg', // foi
+                'link_instagram' => 'https://www.instagram.com/guirioss/',
             ],
             [
                 'participant_id' => 5,
                 'name' => 'Larissa Vieira',
                 'badge' => 'Atlético',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/larissa-vieira.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/B2EKpwdCRzU',
-                'link_instagram' => 'https://www.instagram.com/reel/DQraflRDidO/?igsh=cnhwdjl5ZjVyZXNx',
+                'link_video' => 'https://www.youtube.com/embed/LFvMGUmsh1U', //foi
+                'link_instagram' => 'https://www.instagram.com/larissavlira/',
             ],
             [
                 'participant_id' => 6,
                 'name' => 'Leonardo Brasil',
                 'badge' => 'Atlético',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/leonardo-brasil.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/37MUaX4OmgE',
-                'link_instagram' => 'https://www.instagram.com/p/DQc6KswE3LT/',
+                'link_video' => 'https://www.youtube.com/embed/tFoXv4Dh0pg', //foi
+                'link_instagram' => 'https://www.instagram.com/leobrasiltv.oficial/',
             ],
             [
                 'participant_id' => 7,
                 'name' => 'Maira Lopes',
                 'badge' => 'Cruzeiro',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/maira-lopes.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/yCA-baEXQyQ',
-                'link_instagram' => 'https://www.instagram.com/reel/DRe1AjOAHk9/?igsh=aWh4ZXpyMXR3YWF0',
+                'link_video' => 'https://www.youtube.com/embed/xrTVkEx6_40', //foi
+                'link_instagram' => 'https://www.instagram.com/maiilopesss/',
             ],
             [
                 'participant_id' => 8,
                 'name' => 'Naiara Vitória',
                 'badge' => 'Atlético',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/naiara-vitoria.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/E2Jeoz3cPts',
-                'link_instagram' => 'https://www.instagram.com/reel/DRKqNXgCQLw/?igsh=MXZxN3dwcjRhdGFtZA==', //não está certo
+                'link_video' => 'https://www.youtube.com/embed/PHvtokUCkuk', //foi
+                'link_instagram' => 'sem link', //não está certo
             ],
             [
                 'participant_id' => 9,
                 'name' => 'Nezir Araújo',
                 'badge' => 'América',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/nezir-araujo.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/XEIr3A-oYhs',
-                'link_instagram' => 'https://www.instagram.com/reel/DQo8Xp1EdJp/?igsh=eXp5YnJxcHlpbnk3',
+                'link_video' => 'https://www.youtube.com/embed/GABkTKF8ahk', //foi
+                'link_instagram' => 'https://www.instagram.com/neziraraujo/',
             ],
             [
                 'participant_id' => 10,
                 'name' => 'Paulo Henrique',
                 'badge' => 'Cruzeiro',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/paulo-henrique.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/dptyj0IFP5U',
-                'link_instagram' => 'https://www.instagram.com/p/DRdDGtEksMV/',
+                'link_video' => 'https://www.youtube.com/embed/be44FeLskyk', //foi
+                'link_instagram' => 'https://www.instagram.com/uaizeiroreserva/',
             ],
             [
                 'participant_id' => 11,
                 'name' => 'Rafael Andrade',
                 'badge' => 'Cruzeiro',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/rafael-andrade.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/1ppxPCiJo8A',
-                'link_instagram' => 'https://www.instagram.com/reel/DRS2UZpAHZ6/?igsh=azh5MWxpMTd1Y2lr',
+                'link_video' => 'https://www.youtube.com/embed/b1fApNXcilE', //foi
+                'link_instagram' => 'https://www.instagram.com/rafaelandradelucchesi8/',
             ],
             [
                 'participant_id' => 12,
                 'name' => 'Samuel Eduardo',
                 'badge' => 'América',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/samuel-eduardo.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/bSIJRbxMrAY',
-                'link_instagram' => 'https://www.instagram.com/reel/DQetzoykYfI/?igsh=dnJiZTdib3E3NDYy',
+                'link_video' => 'https://www.youtube.com/embed/mVJJFPyEOMs', // foi
+                'link_instagram' => 'https://www.instagram.com/samueduu/',
             ],
             [
                 'participant_id' => 13,
                 'name' => 'Wesley Gonçalves',
                 'badge' => 'Atlético',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/wesley-goncalves.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/tjYcTn4V-I4',
-                'link_instagram' => 'https://www.instagram.com/reel/DRe6W79EdOh/?igsh=MXdiOWllaG5rOTFyMA==',
+                'link_video' => 'https://www.youtube.com/embed/r0767yi2u3A', // foi
+                'link_instagram' => 'https://www.instagram.com/west_gs/',
             ],
             [
                 'participant_id' => 14,
                 'name' => 'Wesley Ricardo',
                 'badge' => 'Cruzeiro',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/wesley-ricardo.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/clnwlsaH8Io',
-                'link_instagram' => 'https://www.instagram.com/reel/DRdhJI6DGhJ/?igsh=MWF2cHdkaXN3cGRxdw==',
+                'link_video' => 'https://www.youtube.com/embed/HNr5i3cKVoc', // foi
+                'link_instagram' => 'https://www.instagram.com/oficialwesleymaciel/',
             ],
             [
                 'participant_id' => 15,
                 'name' => 'William Gomes',
                 'badge' => 'Atlético',
                 'link_image' => 'https://servicescae.correiobraziliense.com.br/images/participants/wiliam-gomes.jpeg',
-                'link_video' => 'https://www.youtube.com/embed/SVrsZetok4I',
-                'link_instagram' => 'https://www.instagram.com/reel/DRSZ2vhgMk3/?igsh=cmJ3M3M0ZDY1NWN0',
+                'link_video' => 'https://www.youtube.com/embed/o8x3jhCVVYM', // foi
+                'link_instagram' => 'https://www.instagram.com/williamgomesda_s/',
             ],
         ];
 
