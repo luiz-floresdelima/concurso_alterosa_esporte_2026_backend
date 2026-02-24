@@ -52,7 +52,9 @@ class LeadsController extends Controller
                     $lead->email,
                     $lead->participant->name ?? 'Participante não localizado',
                     $lead->cpf,
-                    $lead->created_at->format('d/m/Y H:i:s'),
+                    $lead->created_at
+                        ->timezone(config('app.timezone', 'America/Sao_Paulo'))
+                        ->format('d/m/Y H:i:s'),
                 ], ';');
             }
 
