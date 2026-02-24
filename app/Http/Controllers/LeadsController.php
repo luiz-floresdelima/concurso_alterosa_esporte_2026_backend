@@ -52,8 +52,9 @@ class LeadsController extends Controller
                     $lead->email,
                     $lead->participant->name ?? 'Participante não localizado',
                     $lead->cpf,
+                    // Ajusta explicitamente para o fuso BRT (UTC-3) antes de formatar.
                     $lead->created_at
-                        ->timezone(config('app.timezone', 'America/Sao_Paulo'))
+                        ->timezone('America/Sao_Paulo')
                         ->format('d/m/Y H:i:s'),
                 ], ';');
             }
