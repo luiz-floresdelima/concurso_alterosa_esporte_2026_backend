@@ -9,14 +9,10 @@ class VoteController extends Controller
 {
     public function store(VoteStoreRequest $request)
     {
-        $vote = Vote::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'cpf' => $request->cpf,
-            'participant_id' => $request->participant_id
-        ]);
-
-        return response($vote, 201);
+        // Votação encerrada: interrompe criação e avisa o cliente.
+        return response()->json([
+            'message' => 'As votações estão encerradas. Nenhum novo voto pode ser registrado.'
+        ], 403);
     }
 
     public function getCountVotes()
