@@ -32,10 +32,17 @@ class ParticipantController extends Controller
 
     public function getWinners()
     {
-        $topParticipants = Participant::query()
+        $sub = Participant::query()
             ->withCount('votes')
-            ->orderByDesc('votes_count')
-            ->limit(3)
+            ->selectRaw('
+                ROW_NUMBER() OVER (
+                    PARTITION BY badge
+                    ORDER BY votes_count DESC
+                ) as rank_position
+            ');
+
+        $topParticipants = Participant::fromSub($sub, 'ranked')
+            ->where('rank_position', 1)
             ->get();
 
         return $topParticipants;
