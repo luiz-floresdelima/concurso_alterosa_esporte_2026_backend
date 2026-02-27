@@ -32,19 +32,19 @@ class ParticipantController extends Controller
 
     public function getWinners()
     {
-        $sub = Participant::query()
+        $teams = ['Cruzeiro', 'Atlético', 'América'];
+
+        $participantsByTeam = Participant::query()
             ->withCount('votes')
-            ->selectRaw('
-                ROW_NUMBER() OVER (
-                    PARTITION BY badge
-                    ORDER BY votes_count DESC
-                ) as rank_position
-            ');
+            ->whereIn('badge', $teams)
+            ->orderByDesc('votes_count')
+            ->get()
+            ->groupBy('badge');
 
-        $topParticipants = Participant::fromSub($sub, 'ranked')
-            ->where('rank_position', 1)
-            ->get();
-
-        return $topParticipants;
+        // Mantém a ordem solicitada: Cruzeiro, Atlético, América.
+        return collect($teams)
+            ->map(fn (string $team) => optional($participantsByTeam->get($team))->first())
+            ->filter()
+            ->values();
     }
 }
